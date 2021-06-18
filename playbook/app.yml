@@ -1,0 +1,22 @@
+- name: Deploy application
+  hosts: localhost
+  become: no
+  tasks:
+    - name: load variables
+      include_vars: ../variables/vars.yml
+    - name: template the file
+      template: src=../template/config.json.j2 dest=../files/html/assets/config.json mode=0644
+      tags:
+        - template
+    - name: deploy
+      synchronize:
+        src=../files/html
+        dest=/srv/www/nginx/
+      tags:
+        - deploy
+    - name : reload nginx
+      service: name=nginx state=reloaded
+      tags:
+        - reload
+
+

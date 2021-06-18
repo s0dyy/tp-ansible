@@ -1,0 +1,31 @@
+- name: Configure webserver with nginx
+  hosts: localhost
+  become: no
+  tasks:
+    - name: install nginx 
+      command: cave resolve -x www-servers/nginx
+      tags:
+      - install
+    - name: copy nginx config
+      copy: src=../files/nginx/default dest=/etc/nginx/nginx.conf
+      tags:
+      - copy
+    - name: start nginx 
+      service: name=nginx enabled=yes state=started
+      tags:
+      - start
+    - name: restart nginx 
+      service: name=nginx state=restarted
+      tags:
+      - restart
+      - never
+    - name: stop nginx 
+      service: name=nginx state=stopped
+      tags:
+      - stop
+      - never
+    - name: remove nginx 
+      command: cave uninstall -x www-servers/nginx
+      tags: 
+      - uninstall
+      - never

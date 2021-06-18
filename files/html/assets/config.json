@@ -1,0 +1,11 @@
+{
+  "nom": "Sorin",
+  "prenom": "Maxime",
+  "promo": "B3DEV",
+  "secret": "s3cr3t",
+  "hobbies": [
+    "Series",
+    "Movies",
+    "Comics"
+  ]
+}

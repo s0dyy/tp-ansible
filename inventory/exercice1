@@ -1,0 +1,12 @@
+localhost ansible_connection=local
+
+[ui]
+8vh63p.mon-super-domain.bzh ansible_user=user1 ansible_port=54000
+
+[back]
+iimzhr.mon-super-domain.bzh ansible_user=user1 ansible_port=54000
+6b7vav.mon-super-domain.bzh ansible_user=user2
+
+[bdd]
+ruyf2s.mon-super-domain.bzh ansible_user=user2
+156.65.81.2 77yg05.mon-super-domain.bzh ansible_user=user2
